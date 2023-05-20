@@ -1,0 +1,21 @@
+close all;
+clear all;
+clc;
+
+%% Load signals
+
+load wecg; 
+[cA,cD] = dwt(wecg,'db3',3);  % A
+f1=mean(cA);
+f2=var(cA);
+f3=entropy(cA);
+%Energy
+m=length(cA);
+f4=sum(cA.^2)/(m.^2);
+f5=mean(cD);
+f6=var(cD);
+f7=entropy(cD);
+%Energy
+m1=length(cD);
+f8=sum(cD.^2)/(m1.^2);
+feature_vector= cat(2,f1,f2,f3,f4,f5,f6,f7,f8);

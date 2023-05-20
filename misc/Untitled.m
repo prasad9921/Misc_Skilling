@@ -1,0 +1,13 @@
+x=[3,5,7,8];
+N=4;
+n=0:N-1;
+X=dft(x,N);
+k=0:N-1;
+m=abs(X);
+p=angle(round(X))*180/pi;
+subplot(3,1,1);
+stem(n,x,'r');
+subplot(3,1,2);
+stem(k,m,'b');
+subplot(3,1,3);
+stem(k,p,'m');
